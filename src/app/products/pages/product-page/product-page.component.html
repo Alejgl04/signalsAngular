@@ -14,7 +14,11 @@
     </div>
 
     <div class="col-auto">
-      <span mat-button>Some Information</span>
+      <span customLabel
+        [color]="color"
+        [errors]="myForm.get('name')?.errors">
+        Temporal
+      </span>
     </div>
 
   </div>
