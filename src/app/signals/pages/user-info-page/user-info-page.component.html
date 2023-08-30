@@ -2,19 +2,19 @@
 <hr>
 <div class="row">
   <div class="col-4">
-    <h3>Current User:</h3>
+    <h3>Current User: {{userId()}}</h3>
 
-    <button class="btn btn-outline-primary">Prev</button>
+    <button (click)="loadUser( userId() - 1 )" class="btn btn-outline-primary">Previous</button>
     -
-    <button class="btn btn-outline-primary">Next</button>
+    <button (click)="loadUser( userId() + 1 )" class="btn btn-outline-primary">Next</button>
   </div>
 
-  <div class="col-8">
-    <h3>Username:</h3>
-    <p>Email:</p>
+  <div class="col-8" *ngIf="currentUser()">
+    <h3>Username</h3>
+    <p>Email: {{ currentUser()!.email }}</p>
     <p>Name:</p>
 
-    <img src="..." alt="Avatar">
+    <img [src]="currentUser()!.avatar" class="rounded" [alt]="currentUser()!.first_name">
 
     <div class="col-8 text-danger">
       User not found
